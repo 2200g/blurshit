@@ -1,0 +1,56 @@
+interpolation:
+  enabled: y
+  fps: 1080
+  speed: medium
+  tuning: film
+  algorithm: 23
+  use gpu: no
+  mask:
+
+frame blending:
+  enabled: yes
+  fps: 60
+  intensity: 1.5
+  weighting: equal
+
+flowblur:
+  enabled: no
+  amount: 60
+  mask: /home/aadi/Smoothie/masks/test.png
+
+encoding:
+  process: ffmpeg
+  loglevel: error
+  args: -c:v libx264 -preset slow -aq-mode 3 -crf 16
+
+preview:
+  enabled: no
+  ffmpeg: -s 1280x720 -f yuv4mpegpipe -
+  process: ffplay
+  args: -loglevel quiet -i - -autoexit -window_title smoothie.preview -loglevel quiet
+
+misc:
+  mpv bin: mpv
+  stay on top: true
+  verbose: false
+  ding after: 1
+  folder: 
+  container: .MP4
+  prefix: 
+  suffix: fruits
+  dedupthreshold: 0
+
+console params:
+  ontop: yes
+  borderless: yes
+  width: 900
+  height: 35
+
+timescale:
+  in: 1.0
+  out: 1.0
+
+pre interp:
+  enabled: no
+  factor: 2x
+  model: rife-v4.4
